@@ -12,23 +12,23 @@
 <body>
     <div id="mapSelector">
         <div id="map"></div>
-        <br>
-        <button id="btnConfirmPosition">Confirm Position</button>
+        <button class="submit_btn" id="btnConfirmPosition">Confirm Position</button>
     </div>
     <!-- User profile selector dropdown -->
     <select name="userProfileSelector" id="userProfileSelector">
         <option value="user1">Teszt Elek</option>
-        <option value="user2">Quandale Dingle (sus)</option>
+        <option value="user2">Quandale Dingle</option>
         <option value="user3">Bart Simpson</option>
     </select>
 
-    <form>
+    <form action="/purchase" method="POST" id="fakery">
         <input type="text" id = "txtEmail" name="email" placeholder="Email"> <br>
-        <input type="text" id = "txtPhone" name="phone_number" placeholder="Phone number"> <br>
+        <input type="time" id = "time" name="timeLater" required>
+        <!-- <input type="text" id = "txtPhone" name="phone_number" placeholder="Phone number"> <br> -->
         <input type="text" id = "txtLocation" name="location" placeholder="Location"> <button onclick="showMapSelector(event);">Pick</button> <br>
-        <input type="text" id = "txtZip" name="zip" placeholder="Zip code"> <br>
+        <!-- <input type="text" id = "txtZip" name="zip" placeholder="Zip code"> <br> -->
         
-        <input type="submit" value="Place order">
+        <input class="submit_btn" type="submit" value="Make transaction">
     </form>
 
     <script src="index.js"></script>

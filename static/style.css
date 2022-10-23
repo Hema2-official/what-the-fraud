@@ -8,6 +8,23 @@ body {
     width: 100%;
     height: 480px;
 }
+.map {
+    width: 50%;
+    height: 500px;
+    margin: 1%;
+    border: 3px solid #000;
+    border-radius: 12px;
+}
+
+.map_cont {
+    display: flex;
+    flex-direction: row;
+}
+.map_cont > div {
+    width: 50%;
+    margin: 1%;
+    margin-bottom: 0;
+}
 
 #mapSelector {
     position: absolute;
@@ -30,9 +47,18 @@ body {
 }
 
 input, button, #userProfileSelector {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
     font-size: 25px;
     padding: 3px;
     margin: 5px;
-
+}
+input {
+    width: calc(100% - 16px);
+}
+.submit_btn {
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+    width: calc(100% - 10px);
 }
