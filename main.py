@@ -13,7 +13,7 @@ user_attemps = []
 def fill_in_attempt(history_ele, success):
     coords = history_ele[1:]
     address = getAddress(Point(coords[0], coords[1])).raw['address']
-    attempt = (mins_to_time24(history_ele[0]), address['city'], address['road'], success)
+    attempt = (mins_to_time24(history_ele[0]), address['country'], int(success))
     user_attemps.append(attempt)
     socketio.emit('attempts', user_attemps)
 

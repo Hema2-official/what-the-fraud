@@ -1,46 +1,34 @@
 // Initialize socket.io
 const socket = io();
 
+attempts = [];
+
 socket.on('attempts', (data) => {
     console.log(data);
-    Alpine.store('attempts', data);
+    attempts = data;
+    renderAllAttempts();
 });
 
+function renderAllAttempts() {
+    attempts.forEach((attempt) => {
+        renderAttempt(attempt);
+    });
+}
 
-// Get element references
-var map = document.getElementById('map');
-var userProfileSelector = document.getElementById('userProfileSelector');
+function renderAttempt(attempt) {
+    const attemptsContainer = document.getElementById('attempts');
+    const attemptDiv = document.createElement('div');
+    attemptDiv.className = 'attempt';
+    attemptDiv.innerHTML = `
+        <h2 class="attempt__name">${attempt[0]}</h2>
+        <h3 class="attempt__email">Near ${attempt[1]}</h3>
+        <h3 class="attempt__phone">${attempt[2] == 0 ? 'Successful transaction' : 'Interrupted activity'}</h3>
+        `
+    attemptsContainer.appendChild(attemptDiv);
+}
 
 
-// // Initialize LocationPicker plugin
-// var lp = new locationPicker(map, {
-//     setCurrentPosition: true, // You can omit this, defaults to true
-//     lat: 47.499547506475835,
-//     lng: 19.05877926994122
-// }, {
-//     zoom: 6 // You can set any google map options here, zoom defaults to 15
-// });
 
-// var map_location = lp.getMarkerPosition();
-var userProfile = 'user1';
-
-
-// function refreshUserProfile() {
-//     profile = userProfiles.find(function (profile) {
-//         return profile.name === userProfile;
-//     });
-//     txtEmail.value = profile.email;
-//     txtPhone.value = profile.phone;
-//     txtZip.value = profile.zip;
-//     txtLocation.value = profile.location[0].toFixed(4) + ',' + profile.location[1].toFixed(4);
-// }
-
-// event listener for profile selector dropdown
-userProfileSelector.addEventListener('change', function (e) {
-    userProfile = e.target.value;
-    refreshUserProfile();
-    console.log('Profile changed to ' + userProfile);
-});
 
 function showMapSelector(e) {
     e.preventDefault();

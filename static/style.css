@@ -62,3 +62,8 @@ input {
     padding: 5px;
     width: calc(100% - 10px);
 }
+
+.attempt 
+{
+    margin-bottom: 0;
+}
